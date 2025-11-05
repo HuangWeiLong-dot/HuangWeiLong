@@ -1,0 +1,701 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 250px;
+    background-color: #222;
+    color: #fff;
+    padding: 30px 0;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 40px;
+    perspective: 1000px;
+    /* 提供3D效果的透视视角 */
+    display: inline-block;
+    width: 100%;
+}
+
+/* 3D容器 */
+.profile .image-container {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 0;
+    object-fit: cover;
+    margin-bottom: 5px; /* 图片自身的margin */
+    border: 3px solid #fff;
+    display: block;
+    transform-style: preserve-3d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 增加头像容器与名字之间的间距 */
+.image-container {
+    margin-bottom: 25px;
+}
+
+.profile-name {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-link {
+    display: block;
+    padding: 12px 30px;
+    color: #999;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.nav-link i {
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #fff;
+    background-color: #333;
+    padding-left: 35px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    flex: 1;
+    padding: 80px;
+    position: relative;
+}
+
+/* Home Page Styles */
+.home-content {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.home-content h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.definition {
+    font-size: 1.2rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* About Page Styles */
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-header {
+    margin-bottom: 50px;
+}
+
+.about-header h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.about-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #222;
+}
+
+.about-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.about-main {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.contact-info {
+    flex: 1;
+    background-color: #f5f5f5;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.contact-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.info-item strong {
+    min-width: 80px;
+    display: inline-block;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 15px;
+    color: #666;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #222;
+}
+
+.focus-areas {
+    margin-top: 60px;
+}
+
+.focus-areas h3 {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.focus-areas h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #222;
+}
+
+.focus-items {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.focus-item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 20px;
+}
+
+.focus-item i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.focus-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* Contact Page Styles */
+.contact-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-header {
+    margin-bottom: 50px;
+}
+
+.contact-header h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.contact-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #222;
+}
+
+.contact-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.contact-main {
+    display: flex;
+    gap: 60px;
+}
+
+.contact-info-section {
+    flex: 1;
+}
+
+.contact-info-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.contact-info-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #222;
+}
+
+.contact-form-section {
+    flex: 1;
+}
+
+.contact-form-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.contact-form-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #222;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px 40px 15px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #222;
+}
+
+.contact-form i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.submit-btn {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.submit-btn:hover {
+    background-color: #444;
+}
+
+/* Video and Podcast Pages */
+.video-content,
+.podcast-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header {
+    margin-bottom: 50px;
+}
+
+.page-header h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.page-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #222;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.media-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.media-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.media-thumbnail {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.media-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.media-item:hover .media-thumbnail img {
+    transform: scale(1.05);
+}
+
+.media-content {
+    padding: 20px;
+}
+
+.media-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.media-content p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.media-date {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Navigation Arrows */
+.nav-arrows {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.arrow-btn {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #666;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.arrow-btn:hover {
+    background-color: #222;
+    color: #fff;
+    border-color: #222;
+}
+
+/* Image Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Make images clickable with cursor pointer */
+.about-image {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.profile-large {
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    /* border: 3px solid #fff; */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: block;
+    transform-style: preserve-3d;
+}
+
+.profile-large:hover {
+    opacity: 1;
+    /* 移除固定的hover效果，使用JS控制的动态3D效果 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Image Caption Styles */
+.image-caption {
+    /* background-color: #f8f9fa; */
+    padding: 10px 15px;
+    /* border-radius: 0 0 8px 8px; */
+    margin-top: -5px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+    /* border: 1px solid #e0e0e0; */
+    border-top: none;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .main-content {
+        margin-left: 200px;
+        padding: 60px 40px;
+    }
+    
+    .home-content h1 {
+        font-size: 3rem;
+    }
+    
+    .about-main,
+    .contact-main {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 20px 0;
+    }
+    
+    .profile {
+        margin-bottom: 20px;
+    }
+    
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .nav-link {
+        padding: 10px 15px;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 40px 20px;
+    }
+    
+    .home-content {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        padding: 40px 0;
+    }
+    
+    .home-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .nav-arrows {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .arrow-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .home-content h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .definition {
+        font-size: 1rem;
+    }
+    
+    .focus-items {
+        flex-direction: column;
+    }
+    
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+}

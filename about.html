@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Navigation -->
+        <nav class="sidebar">
+            <div class="profile">
+                <div class="image-container">
+                    <img src="images/Man.jpg" alt="image of a Man" class="profile-img">
+                </div>
+                <h3 class="profile-name">Huang Wei Long</h3>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="nav-link active"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="video.html" class="nav-link"><i class="fas fa-video"></i> Video</a></li>
+                <li><a href="podcast.html" class="nav-link"><i class="fas fa-podcast"></i> Podcast</a></li>
+                <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact Me</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="about-content">
+                <div class="about-header">
+                    <h2>About Me</h2>
+                    <p>Tone-deaf, Lacks social grace, Socially inept</p>
+                </div>
+                
+                <div class="about-main">
+                    <div class="about-image">
+                        <img src="images/Full-body.jpg" alt="image of a Man" class="profile-large" onclick="openModal(this)">
+                        <div class="image-caption">
+                            <p>My 16 years old picture</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-text">
+                        <h3></h3>
+                        <p>Someone who navigates life without the grace of innate social intuition, treating each interaction as a practice and every mistake as a lesson. A perpetual student of the human condition.</p> 
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="info-item">
+                            <strong>Country:</strong>China
+                        </div>
+                        <div class="info-item">
+                            <strong>City:</strong> Shanghai
+                        </div>
+                        <div class="info-item">
+                            <strong>Email:</strong> 3571676852@qq.com
+                        </div>
+                        <div class="info-item">
+                            <strong>Phone:</strong> +86 150 2137 3202
+                        </div>
+                        <div class="social-links">
+                            <a href="images/QQ.jpg" title="QQ QR Code" onclick="showQrCode('qq'); return false;"><i class="fab fa-qq" style="font-size: 24px;"></i></a>
+                            <a href="images/WeChat.jpg" title="WeChat QR Code" onclick="showQrCode('wechat'); return false;"><i class="fab fa-weixin" style="font-size: 24px;"></i></a>
+                            <!-- <a href="https://github.com/HuangWeiLong-dot" target="_blank" title="GitHub"><i class="fab fa-github" style="font-size: 24px;"></i></a> -->
+                            <a href="mailto:3571676852@qq.com" target="_blank" title="Send Email"><i class="fas fa-envelope" style="font-size: 24px;"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="focus-areas">
+                    <h3>My Focus Areas</h3>
+                    <div class="focus-items">
+                        <div class="focus-item">
+                            <i class="fas fa-sitemap"></i>
+                            <h4>AI Workflows</h4>
+                        </div>
+                        <div class="focus-item">
+                            <i class="fas fa-database"></i>
+                            <h4>Data Management</h4>
+                        </div>
+                        <div class="focus-item">
+                            <i class="fas fa-paint-roller"></i>
+                            <h4>Design Patterns</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <div class="nav-arrows">
+                <button class="arrow-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="arrow-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    
+    <!-- Modal for image zoom -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    
+    <!-- QR Code Modal -->
+    <div id="qrcode-modal" style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    ">
+        <div style="
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        ">
+            <button onclick="closeQrCode()" style="
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                color: #666;
+            ">&times;</button>
+            <h3 id="qrcode-title" style="margin-bottom: 20px;">Scan the QR code to add me on QQ or WeChat</h3>
+            <img id="qrcode-image" src="" alt="QR Code" style="width: 200px; height: 200px; margin-bottom: 20px;">
+            <p id="qrcode-description"></p>
+        </div>
+    </div>
+    
+    <script>
+        // Image modal functionality
+        function openModal(img) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+        
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+        
+        // QR Code modal functionality
+        function showQrCode(type) {
+            const modal = document.getElementById('qrcode-modal');
+            const title = document.getElementById('qrcode-title');
+            const image = document.getElementById('qrcode-image');
+            const description = document.getElementById('qrcode-description');
+            
+            if (type === 'qq') {
+                title.textContent = 'QQ QR Code';
+                image.src = 'images/QQ.jpg';
+                description.textContent = 'QQ: 3571676852';
+            } else if (type === 'wechat') {
+                title.textContent = 'WeChat QR Code';
+                image.src = 'images/WeChat.jpg';
+                description.textContent = 'Scan the QR code to add me on WeChat';
+            }
+            
+            modal.style.display = 'flex';
+        }
+        
+        function closeQrCode() {
+            document.getElementById('qrcode-modal').style.display = 'none';
+        }
+        
+        // 点击模态框外部关闭
+        document.getElementById('qrcode-modal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeQrCode();
+            }
+        });
+    </script>
+</body>
+</html>

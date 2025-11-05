@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Navigation -->
+        <nav class="sidebar">
+            <div class="profile">
+                <div class="image-container">
+                    <img src="images/Man.jpg" alt="image of a Man" class="profile-img">
+                </div>
+                <h3 class="profile-name">Huang Wei Long</h3>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="video.html" class="nav-link"><i class="fas fa-video"></i> Video</a></li>
+                <li><a href="podcast.html" class="nav-link"><i class="fas fa-podcast"></i> Podcast</a></li>
+                <li><a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i> Contact Me</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="contact-content">
+                <div class="contact-header">
+                    <h2>Contact</h2>
+                    <p>Feel free to reach out to me</p>
+                </div>
+                
+                <div class="contact-main">
+                    <div class="contact-info-section">
+                        <h3>Contact Me</h3>
+                        <p>I am always open for a chat</p>
+                        
+                        <div class="info-item" style="margin-top: 30px;">
+                            <i class="fas fa-map-marker-alt" style="margin-right: 15px; color: #666;"></i>
+                            <span>Shanghai, China</span>
+                        </div>
+                        
+                        <div class="info-item" style="margin-top: 20px;">
+                            <i class="fas fa-envelope" style="margin-right: 15px; color: #666;"></i>
+                            <span>3571676852@qq.com</span>
+                        </div>
+                        
+                        <div class="info-item" style="margin-top: 20px;">
+                            <i class="fas fa-phone" style="margin-right: 15px; color: #666;"></i>
+                            <span>+86 150 2137 3202</span>
+                        </div>
+                        
+                        <div class="social-links" style="margin-top: 40px;">
+                            <a href="#" title="QQ QR Code" onclick="showQrCode('qq'); return false;"><i class="fab fa-qq" style="font-size: 24px;"></i></a>
+                            <a href="#" title="WeChat QR Code" onclick="showQrCode('wechat'); return false;"><i class="fab fa-weixin" style="font-size: 24px;"></i></a>
+                            <!-- <a href="https://github.com/HuangWeiLong-dot" target="_blank" title="GitHub"><i class="fab fa-github" style="font-size: 24px;"></i></a> -->
+                            <a href="mailto:3571676852@qq.com" target="_blank" title="Send Email"><i class="fas fa-envelope" style="font-size: 24px;"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-section">
+                        <h3>Contact Form</h3>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <input type="text" placeholder="Name" required>
+                                <i class="fas fa-user"></i>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" placeholder="Email Address" required>
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea placeholder="" required></textarea>
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Send message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <div class="nav-arrows">
+                <button class="arrow-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="arrow-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    
+    <!-- QR Code Modal -->
+    <div id="qrcode-modal" style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    ">
+        <div style="
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        ">
+            <button onclick="closeQrCode()" style="
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                color: #666;
+            ">&times;</button>
+            <h3 id="qrcode-title" style="margin-bottom: 20px;">Scan the QR code to add me on QQ or WeChat</h3>
+            <img id="qrcode-image" src="" alt="QR Code" style="width: 200px; height: 200px; margin-bottom: 20px;">
+            <p id="qrcode-description"></p>
+        </div>
+    </div>
+    
+    <script>
+        function showQrCode(type) {
+            const modal = document.getElementById('qrcode-modal');
+            const title = document.getElementById('qrcode-title');
+            const image = document.getElementById('qrcode-image');
+            const description = document.getElementById('qrcode-description');
+            
+            if (type === 'qq') {
+                title.textContent = 'QQ QR Code';
+                image.src = 'images/QQ.jpg';
+                description.textContent = 'QQ: 3571676852';
+            } else if (type === 'wechat') {
+                title.textContent = 'WeChat QR Code';
+                image.src = 'images/WeChat.jpg';
+                description.textContent = 'Scan the QR code to add me on WeChat';
+            }
+            
+            modal.style.display = 'flex';
+        }
+        
+        function closeQrCode() {
+            document.getElementById('qrcode-modal').style.display = 'none';
+        }
+        
+        // 点击模态框外部关闭
+        document.getElementById('qrcode-modal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeQrCode();
+            }
+        });
+    </script>
+</body>
+</html>
